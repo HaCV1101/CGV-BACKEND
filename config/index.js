@@ -1,17 +1,15 @@
-const mongoose = require('mongoose');
-
+const mongoose = require("mongoose");
+const DB_URI = process.env.DB_URI;
 async function connect() {
-    try {
-        await mongoose.connect('mongodb://127.0.0.1:27017/F8_education_dev', {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-        });
-        console.log('Connect successfully!!!');
-    }
-    catch (error) {
-        console.log('Connect fail!!!');
-    }
-
+  try {
+    await mongoose.connect(DB_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+    console.log("Connect successfully!!!");
+  } catch (error) {
+    console.log("Connect fail!!!");
+  }
 }
 
 module.exports = { connect };
